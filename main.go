@@ -1,7 +1,15 @@
 package main
 
-import "github.com/hunterjsb/gammoc/src/config"
+import (
+	"fmt"
+
+	"github.com/hunterjsb/gammoc/src/config"
+)
 
 func main() {
-	config.ReadDotenv()
+	s, err := config.ReadDotenv(".env")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(s)
 }
